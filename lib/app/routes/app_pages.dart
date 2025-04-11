@@ -8,6 +8,8 @@ import '../modules/jenisumkm/bindings/jenisumkm_binding.dart';
 import '../modules/jenisumkm/views/jenisumkm_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/profile/bindings/profile_binding.dart';
+import '../modules/profile/views/profile_view.dart';
 
 part 'app_routes.dart';
 
@@ -29,13 +31,18 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.DASHBOARD,
-      page: () =>  DashboardView(),
+      page: () => DashboardView(),
       binding: DashboardBinding(),
     ),
     GetPage(
       name: _Paths.JENISUMKM,
       page: () => const JenisumkmView(),
       binding: JenisumkmBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () =>  ProfileView(),
+      binding: ProfileBinding(),
     ),
   ];
 }
