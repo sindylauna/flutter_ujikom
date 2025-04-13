@@ -39,7 +39,7 @@ class LoginController extends GetxController {
 
     if (response.statusCode == 200) 
     { 
-      authToken.write('token', response.body['access_token']);
+      authToken.write('access_token', response.body['access_token']);
       Get.offAll(() =>
      DashboardView()); 
     } else { 

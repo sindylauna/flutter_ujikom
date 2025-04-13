@@ -8,6 +8,8 @@ abstract class Routes {
   static const DASHBOARD = _Paths.DASHBOARD;
   static const JENISUMKM = _Paths.JENISUMKM;
   static const PROFILE = _Paths.PROFILE;
+  static const OPERASIONAL = _Paths.OPERASIONAL;
+  static const KEUANGAN = _Paths.KEUANGAN;
 }
 
 abstract class _Paths {
@@ -17,4 +19,6 @@ abstract class _Paths {
   static const DASHBOARD = '/dashboard';
   static const JENISUMKM = '/jenisumkm';
   static const PROFILE = '/profile';
+  static const OPERASIONAL = '/operasional';
+  static const KEUANGAN = '/keuangan';
 }

@@ -11,7 +11,7 @@ class LoginView extends GetView<LoginController> {
   Widget build(BuildContext context) {
     LoginController controller = Get.put(LoginController());
     return Scaffold(
-      backgroundColor: HexColor('#feeee8'),
+      backgroundColor: HexColor('#FFFFFF'),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -55,7 +55,7 @@ class LoginView extends GetView<LoginController> {
               height: 50,
               width: 250,
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: const Color.fromARGB(255, 3, 56, 99),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: TextButton(

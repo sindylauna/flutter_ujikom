@@ -6,7 +6,7 @@ class JenisumkmController extends GetxController {
   var isLoading = true.obs;
   var jenisUmkmList = [].obs;
   
-  static String jenisumkms = 'http://192.168.61.134:8000/api/jenisumkm';
+  static String jenisumkms = 'http://192.168.234.134:8000/api/jenisumkm';
 
   @override
   void onInit() {

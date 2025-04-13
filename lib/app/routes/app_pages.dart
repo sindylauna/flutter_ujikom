@@ -6,8 +6,12 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/jenisumkm/bindings/jenisumkm_binding.dart';
 import '../modules/jenisumkm/views/jenisumkm_view.dart';
+import '../modules/keuangan/bindings/keuangan_binding.dart';
+import '../modules/keuangan/views/keuangan_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/operasional/bindings/operasional_binding.dart';
+import '../modules/operasional/views/operasional_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 
@@ -41,8 +45,18 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.PROFILE,
-      page: () =>  ProfileView(),
+      page: () => ProfileView(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.OPERASIONAL,
+      page: () => OperasionalView(),
+      binding: OperasionalBinding(),
+    ),
+    GetPage(
+      name: _Paths.KEUANGAN,
+      page: () => KeuanganView(),
+      binding: KeuanganBinding(),
     ),
   ];
 }

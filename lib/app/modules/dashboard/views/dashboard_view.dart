@@ -11,14 +11,14 @@ class DashboardView extends GetView<DashboardController> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Dashboard UMKM"),
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
       ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blue),
+              decoration: BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
               child: Text(
                 "Menu",
                 style: TextStyle(color: Colors.white, fontSize: 24),
@@ -26,16 +26,16 @@ class DashboardView extends GetView<DashboardController> {
             ),
             ListTile(
               leading: const Icon(Icons.business),
-              title: const Text("Data UMKM"),
+              title: const Text("Operaasional"),
               onTap: () {
-                Get.toNamed("/umkm");
+                Get.toNamed("/operasional");
               },
             ),
             ListTile(
               leading: const Icon(Icons.event),
-              title: const Text("Meeting Investor"),
+              title: const Text("Keuangan"),
               onTap: () {
-                Get.toNamed("/meetings");
+                Get.toNamed("/keuangan");
               },
             ),
             ListTile(

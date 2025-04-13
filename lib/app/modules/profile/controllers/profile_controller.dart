@@ -1,42 +1,39 @@
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:project_ujikom/app/data/profile.dart';
-import 'package:project_ujikom/app/utils/api.dart';
-
+import 'package:http/http.dart' as http;
+import 'package:project_ujikom/app/data/profile_response.dart';
+import 'dart:convert';
+ // pastikan path-nya sesuai
 
 class ProfileController extends GetxController {
-  final authToken = GetStorage();
-  final _getConnect = GetConnect();
-  var profileList = <Map<String, dynamic>>[].obs;
-  final String? token = GetStorage().read('token');
-  var isLoading = false.obs;
+  var isLoading = true.obs;
+  var profile = Rx<profile_response?>(null);
 
   @override
   void onInit() {
-    getProfile();
     super.onInit();
+    fetchProfileData();
   }
 
-  Future<profile> getProfile() async {
+  void fetchProfileData() async {
     try {
-      final response = await _getConnect.get(BaseUrl.profile,
-        headers: {'Authorization': "Bearer $token"},
-        contentType: "application/json",
+      final response = await http.get(
+        Uri.parse('http://192.168.234.134:8000/api/profile'), // Ganti dengan URL API kamu
+        headers: {
+          'Authorization': 'Bearer mjZlzWUfrTayuJVVn4HFQmiZhvVEvOyerjsdyiJI2b99ffc3', // Kalau pakai token
+          'Accept': 'application/json',
+        },
       );
 
       if (response.statusCode == 200) {
-        return profile.fromJson(response.body);
+        var jsonData = json.decode(response.body);
+        profile.value = profile_response.fromJson(jsonData);
       } else {
-        throw Exception("Failed to load profile: ${response.statusText}");
+        print("Failed to load profile: ${response.statusCode}");
       }
     } catch (e) {
-      print("Error: $e");
-      rethrow;
+      print("Error fetching profile: $e");
+    } finally {
+      isLoading.value = false;
     }
-  }
-
-  void logout() {
-    authToken.remove('token');
-    Get.offAllNamed('/login');
   }
 }

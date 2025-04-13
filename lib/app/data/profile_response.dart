@@ -1,10 +1,10 @@
-class profile {
+class profile_response {
   bool? success;
   Data? data;
 
-  profile({this.success, this.data});
+  profile_response({this.success, this.data});
 
-  profile.fromJson(Map<String, dynamic> json) {
+  profile_response.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     data = json['data'] != null ? new Data.fromJson(json['data']) : null;
   }
