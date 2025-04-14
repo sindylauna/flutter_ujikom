@@ -17,9 +17,9 @@ class ProfileController extends GetxController {
   void fetchProfileData() async {
     try {
       final response = await http.get(
-        Uri.parse('http://192.168.234.134:8000/api/profile'), // Ganti dengan URL API kamu
+        Uri.parse('http://192.168.0.160:8000/api/profile'), // Ganti dengan URL API kamu
         headers: {
-          'Authorization': 'Bearer mjZlzWUfrTayuJVVn4HFQmiZhvVEvOyerjsdyiJI2b99ffc3', // Kalau pakai token
+          'Authorization': 'Bearer ZPiH6xIOGA4QahgPE421IUbh9mHL4QBvfuUGFQkR57221f90', // Kalau pakai token
           'Accept': 'application/json',
         },
       );

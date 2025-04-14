@@ -45,6 +45,14 @@ class DashboardView extends GetView<DashboardController> {
                 Get.toNamed("/jenisumkm");
               },
             ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text("Profile"),
+              onTap: () {
+                Get.toNamed("/profile");
+              },
+            ),
+
             const Divider(), // Garis pemisah
             ListTile(
               leading: const Icon(Icons.exit_to_app, color: Colors.red),

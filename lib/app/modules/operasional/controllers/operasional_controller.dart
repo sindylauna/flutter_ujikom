@@ -18,9 +18,9 @@ class OperasionalController extends GetxController {
     try {
       isLoading(true);
       final response = await http.get(
-        Uri.parse('http://192.168.234.134:8000/api/operasional'), // Ganti sesuai endpoint
+        Uri.parse('http://192.168.0.160:8000/api/operasional'), // Ganti sesuai endpoint
         headers: {
-         'Authorization': 'Bearer mjZlzWUfrTayuJVVn4HFQmiZhvVEvOyerjsdyiJI2b99ffc3',
+         'Authorization': 'Bearer ZPiH6xIOGA4QahgPE421IUbh9mHL4QBvfuUGFQkR57221f90',
           'Accept': 'application/json',
         },
       );
