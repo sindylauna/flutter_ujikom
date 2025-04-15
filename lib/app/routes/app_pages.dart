@@ -10,6 +10,8 @@ import '../modules/keuangan/bindings/keuangan_binding.dart';
 import '../modules/keuangan/views/keuangan_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/marketing/bindings/marketing_binding.dart';
+import '../modules/marketing/views/marketing_view.dart';
 import '../modules/operasional/bindings/operasional_binding.dart';
 import '../modules/operasional/views/operasional_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.KEUANGAN,
       page: () => KeuanganView(),
       binding: KeuanganBinding(),
+    ),
+    GetPage(
+      name: _Paths.MARKETING,
+      page: () => const MarketingView(),
+      binding: MarketingBinding(),
     ),
   ];
 }

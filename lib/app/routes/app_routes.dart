@@ -10,6 +10,7 @@ abstract class Routes {
   static const PROFILE = _Paths.PROFILE;
   static const OPERASIONAL = _Paths.OPERASIONAL;
   static const KEUANGAN = _Paths.KEUANGAN;
+  static const MARKETING = _Paths.MARKETING;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const PROFILE = '/profile';
   static const OPERASIONAL = '/operasional';
   static const KEUANGAN = '/keuangan';
+  static const MARKETING = '/marketing';
 }
