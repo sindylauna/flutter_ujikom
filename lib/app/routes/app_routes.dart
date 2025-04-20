@@ -11,6 +11,7 @@ abstract class Routes {
   static const OPERASIONAL = _Paths.OPERASIONAL;
   static const KEUANGAN = _Paths.KEUANGAN;
   static const MARKETING = _Paths.MARKETING;
+  static const LEGALUSAHA = _Paths.LEGALUSAHA;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const OPERASIONAL = '/operasional';
   static const KEUANGAN = '/keuangan';
   static const MARKETING = '/marketing';
+  static const LEGALUSAHA = '/legalusaha';
 }

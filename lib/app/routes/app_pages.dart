@@ -8,6 +8,8 @@ import '../modules/jenisumkm/bindings/jenisumkm_binding.dart';
 import '../modules/jenisumkm/views/jenisumkm_view.dart';
 import '../modules/keuangan/bindings/keuangan_binding.dart';
 import '../modules/keuangan/views/keuangan_view.dart';
+import '../modules/legalusaha/bindings/legalusaha_binding.dart';
+import '../modules/legalusaha/views/legalusaha_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/marketing/bindings/marketing_binding.dart';
@@ -64,6 +66,11 @@ class AppPages {
       name: _Paths.MARKETING,
       page: () => const MarketingView(),
       binding: MarketingBinding(),
+    ),
+    GetPage(
+      name: _Paths.LEGALUSAHA,
+      page: () => const LegalusahaView(),
+      binding: LegalusahaBinding(),
     ),
   ];
 }

@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/dashboard_controller.dart';
 
-class DashboardView extends GetView<DashboardController> {
+class DashboardView extends StatelessWidget {
   DashboardView({super.key}) {
-    Get.put(DashboardController()); // Inisialisasi Controller
+    Get.put(DashboardController()); // Initialize the controller
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Dashboard UMKM"),
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       ),
       drawer: Drawer(
         child: ListView(
@@ -21,42 +22,34 @@ class DashboardView extends GetView<DashboardController> {
               decoration: BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
               child: Text(
                 "Menu",
-                style: TextStyle(color: Colors.white, fontSize: 24),
+                style: TextStyle(color: Colors.black, fontSize: 24),
               ),
             ),
-            ListTile(
-              leading: const Icon(Icons.business),
-              title: const Text("Operaasional"),
-              onTap: () {
-                Get.toNamed("/operasional");
-              },
+            _buildDrawerItem(
+              icon: Icons.business,
+              title: "Operasional",
+              onTap: () => Get.toNamed("/operasional"),
             ),
-            ListTile(
-              leading: const Icon(Icons.event),
-              title: const Text("Keuangan"),
-              onTap: () {
-                Get.toNamed("/keuangan");
-              },
+            _buildDrawerItem(
+              icon: Icons.event,
+              title: "Keuangan",
+              onTap: () => Get.toNamed("/keuangan"),
             ),
-            ListTile(
-              leading: const Icon(Icons.category),
-              title: const Text("Jenis UMKM"),
-              onTap: () {
-                Get.toNamed("/jenisumkm");
-              },
+            _buildDrawerItem(
+              icon: Icons.category,
+              title: "Jenis UMKM",
+              onTap: () => Get.toNamed("/jenisumkm"),
             ),
-            ListTile(
-              leading: const Icon(Icons.person),
-              title: const Text("Profile"),
-              onTap: () {
-                Get.toNamed("/profile");
-              },
+            _buildDrawerItem(
+              icon: Icons.person,
+              title: "Profile",
+              onTap: () => Get.toNamed("/profile"),
             ),
-
-            const Divider(), // Garis pemisah
-            ListTile(
-              leading: const Icon(Icons.exit_to_app, color: Colors.red),
-              title: const Text("Logout", style: TextStyle(color: Colors.red)),
+            const Divider(), // Divider line
+            _buildDrawerItem(
+              icon: Icons.exit_to_app,
+              title: "Logout",
+              color: Colors.red,
               onTap: () {
                 Get.defaultDialog(
                   title: "Konfirmasi",
@@ -65,7 +58,7 @@ class DashboardView extends GetView<DashboardController> {
                   textCancel: "Batal",
                   confirmTextColor: Colors.white,
                   onConfirm: () {
-                    controller.logout();
+                    Get.find<DashboardController>().logout();
                   },
                 );
               },
@@ -76,7 +69,7 @@ class DashboardView extends GetView<DashboardController> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Obx(() {
-          if (controller.isLoading.value) {
+          if (Get.find<DashboardController>().isLoading.value) {
             return const Center(child: CircularProgressIndicator());
           }
 
@@ -90,7 +83,7 @@ class DashboardView extends GetView<DashboardController> {
               _buildDashboardCard("Meeting Pending", "5", Icons.event, Colors.orange),
               _buildDashboardCard(
                 "Jenis UMKM",
-                controller.totalJenisUmkm.value.toString(),
+                Get.find<DashboardController>().totalJenisUmkm.value.toString(),
                 Icons.category,
                 Colors.green,
               ),
@@ -98,6 +91,20 @@ class DashboardView extends GetView<DashboardController> {
           );
         }),
       ),
+    );
+  }
+
+  Widget _buildDrawerItem({
+    required IconData icon,
+    required String title,
+    required VoidCallback onTap,
+    Color color = Colors.black,
+  }) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(title),
+      onTap: onTap,
+      textColor: color,
     );
   }
 
